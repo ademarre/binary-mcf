@@ -106,3 +106,12 @@ The 128-bit salt and 184-bit digest in the MCF representation are base-64 encode
     ./ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
 
 The Bcrypt salt is the first 22 characters from the salt/digest field, and the digest is the final 31 characters. The salt and digest must be base-64 decoded separately. Decoding the salt yields 16 bytes, appended to the header octet in positions 1–16. Decoding the digest yields 23 bytes to occupy positions 17–39, completing the decoded hash.
+
+
+
+Code Implementations
+--------------------
+
+There is a [PHP implementation of BMCF][bmcfphp].
+
+[bmcfphp]: https://github.com/ademarre/mcf-hash-encoder-php "McfHash - BMCF Implementation in PHP"
