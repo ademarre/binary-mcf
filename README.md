@@ -101,7 +101,7 @@ There are four Bcrypt scheme identifiers.
 
 To decode, we start with the scheme identifier in the header octet, byte 0. For the <code>2y</code> scheme in our example, this is <code>0x80</code>. The algorithm identifier uses only the three most significant bits. In the lower five bits we store the cost parameter, which Bcrypt requires to be between 04 and 31 (with the leading zero in MCF). With five bits we can store any value between 00 and 31. Adding <code>14</code> to the example header octet, we now have <code>0x8E</code>.
 
-The 128-bit salt and 184-bit digest in the MCF representation are base-64 encoded. Bcrypt base 64 can be encoded and decoded as described in [RFC 4648][base64], but using the following alphabet:
+The 128-bit salt and 184-bit digest in the MCF representation are base-64 encoded. Bcrypt base 64 can be encoded and decoded as described in [RFC 4648][base64], but using the following alphabet, and omitting the <code>=</code> padding:
 
     ./ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
 
