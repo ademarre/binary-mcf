@@ -5,9 +5,9 @@ Binary Modular Crypt Format (BMCF) is the binary counterpart to Modular Crypt Fo
 
 Modular Crypt Format originated with the [crypt(3)][crypt] Unix C library function, and has since been implemented in several other libraries. Historically, MCF was used to encode the password hashes of operating system users for storage in a text file. Nowadays, MCF is also used in systems which store password hashes in database management systems. On large systems with many users, it is often desirable to maximize storage efficiency. To that end, I present Binary Modular Crypt Format as a compact binary serialization of MCF hashes. Depending on the hash scheme, BMCF reduces size by approximately 25–33%.
 
-[mcf]:      http://pythonhosted.org/passlib/modular_crypt_format.html   "Passlib's Documentation of MCF"
-[passlib]:  http://pythonhosted.org/passlib/index.html                  "Passlib password hashing library for Python"
-[crypt]:    http://en.wikipedia.org/wiki/Crypt_(C)                      "crypt(3) Unix C library function"
+[mcf]:      https://passlib.readthedocs.io/en/stable/modular_crypt_format.html  "Passlib's Documentation of MCF"
+[passlib]:  https://passlib.readthedocs.io/en/stable/                           "Passlib password hashing library for Python"
+[crypt]:    https://en.wikipedia.org/wiki/Crypt_(C)                             "crypt(3) Unix C library function"
 
 
 
@@ -41,7 +41,7 @@ Note that while Bcrypt puts the salt and digest in the same field, other schemes
 
 Hash sizes vary by algorithm and hash scheme. A Bcrypt hash, as in the example above, is 60 characters in MCF, which of course requires 60 bytes of storage in any single-byte character encoding. A Bcrypt hash in BMCF requires 40 bytes: <code>(128+184)/8 + 1</code>.
 
-[bcrypt]: http://en.wikipedia.org/wiki/Bcrypt "Bcrypt, Blowfish-based password hashing"
+[bcrypt]: https://en.wikipedia.org/wiki/Bcrypt "Bcrypt, Blowfish-based password hashing"
 
 
 
@@ -75,7 +75,7 @@ To *encode* is to convert a hash from binary form to textual MCF notation.
 
 BMCF definitions for specific hash schemes must ensure data integrity, meaning they perform lossless decode/encode roundtrips for *valid* hashes. Given an invalid hash, behavior may vary by hash scheme or code implementation. An error may be raised; an erroneous hash component may be corrected, breaking data integrity; or the invalid hash component may be encoded and decoded as-is, maintaining data integrity of the invalid hash.
 
-[base64]: http://tools.ietf.org/html/rfc4648#section-4 "RFC 4648 Base64 Specification"
+[base64]: https://tools.ietf.org/html/rfc4648#section-4 "RFC 4648 Base64 Specification"
 
 
 
