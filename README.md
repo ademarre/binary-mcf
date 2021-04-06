@@ -57,8 +57,8 @@ Binary MCF hashes start with a header octet. This first byte employs its three m
     0x40 $2a$   Bcrypt
     0x60 $2x$   Bcrypt
     0x80 $2y$   Bcrypt
-    0xA0 $5$    SHA-256 Crypt (not yet fully defined)
-    0xC0 $6$    SHA-512 Crypt (not yet fully defined)
+    0xA0 $2b$   Bcrypt
+    0xC0 [Reserved]
     0xE0 [Reserved to expand the identifier to the next 5 bits]
 
 Usage of the remaining five bits of the header octet (and all subsequent octets) is specified by the *BMCF definition* for the hash scheme. The only exception is the special case <code>0xE0</code>, which is used to indicate that the remaining five bits (the least significant bits) are used for the hash scheme identifier. If needed, usage of this space will be defined later to accommodate additional hash schemes and indicate overflow of the identifier to subsequent octets.
