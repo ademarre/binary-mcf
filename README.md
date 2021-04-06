@@ -1,7 +1,7 @@
 Binary Modular Crypt Format
 ===========================
 
-Binary Modular Crypt Format (BMCF) is the binary counterpart to Modular Crypt Format (MCF). MCF is a de facto standard for encoding password hashes in an ASCII string, and it allows hashes generated with different hash algorithms to be stored alongside one another compatibly. MCF is not formally defined, but [it has been documented][mcf] by *(and was possibly named by?)* the authors of the [PassLib password hashing library][passlib] for Python.
+Binary Modular Crypt Format (BMCF) is the binary counterpart to Modular Crypt Format (MCF). MCF is a de facto standard for encoding password hashes in an ASCII string, and it allows hashes generated with different hash algorithms to be stored alongside one another compatibly. MCF is not formally defined, but [it has been documented][mcf] by the authors of the [Passlib password hashing library][passlib] for Python.
 
 Modular Crypt Format originated with the [crypt(3)][crypt] Unix C library function, and has since been implemented in several other libraries. Historically, MCF was used to encode the password hashes of operating system users for storage in a text file. Nowadays, MCF is also used in systems which store password hashes in database management systems. On large systems with many users, it is often desirable to maximize storage efficiency. To that end, I present Binary Modular Crypt Format as a compact binary serialization of MCF hashes. Depending on the hash scheme, BMCF reduces size by approximately 25–33%.
 
