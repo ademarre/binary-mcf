@@ -92,12 +92,13 @@ Bcrypt hashes have four components in three fields. The salt and digest share th
 
     $<scheme>$<cost>$<salt><digest>
 
-There are four Bcrypt scheme identifiers.
+There are five Bcrypt scheme identifiers.
 
     0x20 $2$
     0x40 $2a$
     0x60 $2x$
     0x80 $2y$
+    0xA0 $2b$
 
 To decode, we start with the scheme identifier in the header octet, byte 0. For the <code>2y</code> scheme in our example, this is <code>0x80</code>. The algorithm identifier uses only the three most significant bits. In the lower five bits we store the cost parameter, which Bcrypt requires to be between 04 and 31 (with the leading zero in MCF). With five bits we can store any value between 00 and 31. Adding <code>14</code> to the example header octet, we now have <code>0x8E</code>.
 
